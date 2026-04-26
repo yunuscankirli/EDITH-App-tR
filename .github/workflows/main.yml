@@ -20,9 +20,15 @@ jobs:
       - name: ZIP ac
         run: unzip "EDITH_GITHUB_READY (1).zip"
 
+      - name: Kotlin hatasi duzelt
+        run: |
+          sed -i 's/if (iokbsModAktif) sorSonrakiIOKBS()/if (iokbsModAktif) iokbsCoach?.rastgeleSoru()/' \
+            EDITH_FULL/app/src/main/java/com/example/fulledith/MainActivity.kt
+
       - name: build.gradle duzelt
         run: |
-          sed -i 's/compileSdkVersion 34/compileSdkVersion 34\n    namespace "com.example.fulledith"/' EDITH_FULL/app/build.gradle
+          sed -i 's/compileSdkVersion 34/compileSdkVersion 34\n    namespace "com.example.fulledith"/' \
+            EDITH_FULL/app/build.gradle
 
       - name: Wrapper olustur
         run: |
