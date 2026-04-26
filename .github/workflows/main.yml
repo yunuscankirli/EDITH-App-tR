@@ -18,9 +18,11 @@ jobs:
           distribution: 'temurin'
 
       - name: ZIP ac
+        run: unzip "EDITH_GITHUB_READY (1).zip"
+
+      - name: build.gradle duzelt
         run: |
-          unzip "EDITH_GITHUB_READY (1).zip"
-          ls -la
+          sed -i 's/compileSdkVersion 34/compileSdkVersion 34\n    namespace "com.example.fulledith"/' EDITH_FULL/app/build.gradle
 
       - name: Wrapper olustur
         run: |
